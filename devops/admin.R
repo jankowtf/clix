@@ -23,7 +23,11 @@ usethis::use_package("logger")
 renv::install("cli")
 usethis::use_package("cli")
 
+renv::install("rappster/valid", rebuild = TRUE)
+usethis::use_dev_package("valid", type = "Imports", remote = "rappster/valid")
+
 # Development notebook ----------------------------------------------------
 
 usethis::use_test("scratch")
 usethis::use_test("cli")
+usethis::use_test("demo")

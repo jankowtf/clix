@@ -79,7 +79,7 @@ test_that("Headings: h1", {
 
 # Ask ---------------------------------------------------------------------
 
-test_that("ask: yes/no", {
+test_that("Ask: yes/no", {
     expect_message(
         ask_yes_no(
             title = "Test test",
@@ -92,5 +92,24 @@ test_that("ask: yes/no", {
                 "[NOT ENSURED YET] RStudio settings are modified to put {.code {quote(roxygen2)}} in charge of documenting and vignette building"
             )
         )
+    )
+})
+
+test_that("Ask: dir create", {
+    result <- ask_dir_create(.dir = "~/a/b/c")
+    expect_message(
+
+    )
+})
+
+# User input --------------------------------------------------------------
+
+test_that("User input: yes/no/again/exit", {
+    skip("Interactive only")
+    expect_message(
+        input_yes_no_again_exit()
+    )
+    expect_message(
+        input_yes_no_again_exit(title = "Test")
     )
 })

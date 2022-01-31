@@ -345,6 +345,18 @@
       "Repository": "CRAN",
       "Hash": "c9c462b759a5cc844ae25b5942654d13"
     },
+    "valid": {
+      "Package": "valid",
+      "Version": "0.0.0.9002",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "rappster",
+      "RemoteRepo": "valid",
+      "RemoteRef": "main",
+      "RemoteSha": "d0046f71f6c9ca0c8e6df6cc0ec39e3f6fafdfa8",
+      "Hash": "b241ece36fceba5d8d82b02d99f7504a"
+    },
     "vctrs": {
       "Package": "vctrs",
       "Version": "0.3.8",
