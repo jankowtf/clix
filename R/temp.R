@@ -89,3 +89,18 @@ ui_header <- function(title, step, steps_max) {
         usethis::ui_info()
     message()
 }
+
+foo <- function() {
+
+answer <-
+    select.list(
+        choices = valid_yes_no_again_exit(),
+        preselect = valid_yes_no_again_exit("yes"),
+        title = {
+            "Do you want to use package {usethis::ui_code(quote(roxygen2))} for documenting tasks?" %>%
+                ui_glue_wrap_field()
+        }
+    )
+
+}
+
