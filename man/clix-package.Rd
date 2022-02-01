@@ -4,8 +4,12 @@
 \name{clix-package}
 \alias{clix}
 \alias{clix-package}
-\title{clix: What the Package Does (Title Case)}
+\title{clix: A custom CLI implementation}
 \description{
-More about what it does (maybe more than one line) Use four spaces when indenting paragraphs within the Description.
+A custom CLI implementation with features for common CLI scenarios such as "ask user if a non-existing directory should be created or not". It tries to provide sensible bundles of a) messages (in the broader sense) b) querying for user input and c) executing the implications of a given user input
+}
+\author{
+\strong{Maintainer}: Janko Thyson \email{janko@rappster.io}
+
 }
 \keyword{internal}

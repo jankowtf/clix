@@ -1,17 +1,26 @@
 Package: clix
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.0.1.9001
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Title: A custom CLI implementation
+Version: 0.0.1.9002
+Authors@R: 
+    person(given = "Janko",
+           family = "Thyson",
+           role = c("aut", "cre"),
+           email = "janko@rappster.io")
+Maintainer: <janko@rappster.io>
+Description: A custom CLI implementation with features for common CLI scenarios
+    such as "ask user if a non-existing directory should be created or not". 
+    It tries to provide sensible bundles of
+    a) messages (in the broader sense)
+    b) querying for user input and 
+    c) executing the implications of a given user input
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.2
 Imports: 
     cli,
+    lifecycle,
     logger,
     magrittr,
     stringr,
@@ -19,5 +28,6 @@ Imports:
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
-Remotes:  
+Remotes: 
     rappster/valid
+Roxygen: list(markdown = TRUE)
