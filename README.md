@@ -9,12 +9,6 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-A custom CLI implementation that bundles
-
--   messages (in the broader sense)
--   querying for user input
--   executing the implications of a given user input
-
 ## Installation
 
 You can install the development version of clix from
@@ -24,6 +18,14 @@ You can install the development version of clix from
 # install.packages("remotes")
 remotes::install_github("rappster/clix")
 ```
+
+## What?
+
+A custom CLI implementation that bundles
+
+-   messages (in the broader sense)
+-   querying for user input
+-   executing the implications of a given user input
 
 ## Why?
 
