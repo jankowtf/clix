@@ -4,10 +4,10 @@
 #'
 #' `r lifecycle::badge("experimental")`
 #'
+#' @param dir ([character] or [fs_path]) Directory in question.
 #' @param title ([character]) Title for this "input block".
 #' @param preamble_exists_no ([character]) Preamble text.
 #' @param preamble_exists_yes ([character]) Preamble text.
-#' @param dir ([character] or [fs_path]) Directory in question.
 #' @param implications_yes_addendum ([character]) Additional text for the
 #'   implications preamble text
 #' @param implications_yes ([character]) Vector with implications
@@ -22,6 +22,7 @@
 #' @export
 #' @example inst/examples/ex-ask_dir_create.R
 ask_dir_create <- function(
+    dir = "/path/to/directory",
     title = "Directory check",
     preamble_exists_no = c(
         "Directory {.field {dir}} does not exist yet.",
@@ -31,7 +32,6 @@ ask_dir_create <- function(
         "Directory {.field {dir}} already exists.",
         "There is nothing to do."
     ),
-    dir = "/path/to/directory",
     implications_yes_addendum = character(),
     implications_yes = c(
         "Directory {.field {dir}} will be created"
