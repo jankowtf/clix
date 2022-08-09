@@ -32,5 +32,6 @@ test_that("Ask: create directory: exists = true", {
         path %>% fs::dir_create(recurse = TRUE)
     }
 
-    result <- ask_dir_create(dir = .path %>% fs::path("a/b/c"))
+    result <- ask_dir_create(dir = path %>% fs::path("a/b/c"))
+    result <- ask_dir_create(dir = path %>% fs::path("a"))
 })

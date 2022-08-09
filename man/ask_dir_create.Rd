@@ -5,28 +5,28 @@
 \title{Ask: create directory if missing}
 \usage{
 ask_dir_create(
+  dir = "/path/to/directory",
   title = "Directory check",
   preamble_exists_no = c("Directory {.field {dir}} does not exist yet.",
     "Do you want to create it?"),
-  preamble_exists_yes = c("Directory {.field {dir}} already exists.",
-    "There is nothing to do."),
-  dir = "/path/to/directory",
+  preamble_exists_yes = c("Directory {.field {dir}} already exists."),
   implications_yes_addendum = character(),
   implications_yes = c("Directory {.field {dir}} will be created"),
   implications_no_addendum = character(),
   implications_no = c("Nothing ;-)"),
   step = 0,
-  steps_max = 0
+  steps_max = 0,
+  reset = FALSE
 )
 }
 \arguments{
+\item{dir}{(\link{character} or \link{fs_path}) Directory in question.}
+
 \item{title}{(\link{character}) Title for this "input block".}
 
 \item{preamble_exists_no}{(\link{character}) Preamble text.}
 
 \item{preamble_exists_yes}{(\link{character}) Preamble text.}
-
-\item{dir}{(\link{character} or \link{fs_path}) Directory in question.}
 
 \item{implications_yes_addendum}{(\link{character}) Additional text for the
 implications preamble text}
@@ -42,6 +42,9 @@ implications preamble text}
 
 \item{steps_max}{(\link{integer}) Denote how many process steps there are in
 total. See \code{\link[cli:h1]{cli::h1()}}.}
+
+\item{reset}{[\link{logical}] Reset existing directories yes/no? Yes implies that
+all subdirectories are deleted}
 }
 \value{
 

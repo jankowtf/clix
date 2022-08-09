@@ -17,6 +17,8 @@
 #' @param step ([integer]) Denote which process step this is. See [cli::h1()].
 #' @param steps_max ([integer]) Denote how many process steps there are in
 #'   total. See [cli::h1()].
+#' @param reset [[logical]] Reset existing directories yes/no? Yes implies that
+#'   all subdirectories are deleted
 #'
 #' @return
 #' @export
@@ -29,8 +31,7 @@ ask_dir_create <- function(
         "Do you want to create it?"
     ),
     preamble_exists_yes = c(
-        "Directory {.field {dir}} already exists.",
-        "There is nothing to do."
+        "Directory {.field {dir}} already exists."
     ),
     implications_yes_addendum = character(),
     implications_yes = c(
@@ -42,7 +43,8 @@ ask_dir_create <- function(
     ),
     # TODO-20220201-1815: Turn this into an actual emoji
     step = 0,
-    steps_max = 0
+    steps_max = 0,
+    reset = FALSE
 ) {
     # Heading
     h1(text = title, step = step, steps_max = steps_max)
@@ -84,6 +86,20 @@ ask_dir_create <- function(
         )
     } else {
         preamble_exists_yes %>% handle_multi_lines()
+        handle_input(
+            input_fn = input_keep_reset_again_exit,
+            implications_fn = purrr::partial(
+                .f = function(input, dir) {
+                    if (input %>% tolower() == "reset") {
+                        dir %>% dir_reset()
+                    } else {
+                        "Directory '{dir}' kept unchanged" %>%
+                            throw_warning(.console = TRUE)
+                    }
+                },
+                dir = dir
+            )
+        )
     }
 
     invisible(NULL)

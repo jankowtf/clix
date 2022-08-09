@@ -109,7 +109,7 @@ Answer with an input of 1 (“Yes”)
 path %>% fs::dir_exists()
 ```
 
-### Directory already not exist yet
+### Directory already exists
 
 ``` r
 ask_dir_create(dir = path)
@@ -120,6 +120,10 @@ ask_dir_create(dir = path)
 # 
 # There is nothing to do.
 ```
+
+You can also reset an existing directory to its “original state” in the
+sense that the all subdirectories are deleted by answering with
+`2: Reset`
 
 ### Directory does not exist yet and you want to keep it that way
 

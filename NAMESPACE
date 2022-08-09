@@ -2,9 +2,11 @@
 
 export("%>%")
 export(ask_dir_create)
+export(dir_reset)
 export(h1)
 export(handle_input)
 export(implications_input_yes)
+export(input_keep_reset_again_exit)
 export(input_yes_no_again_exit)
 export(throw_error)
 export(throw_warning)

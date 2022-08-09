@@ -1,7 +1,7 @@
 Package: clix
 Type: Package
 Title: A custom CLI implementation
-Version: 0.0.1.9003
+Version: 0.0.1.9004
 Authors@R: 
     person(given = "Janko",
            family = "Thyson",
@@ -24,7 +24,7 @@ Imports:
     logger,
     magrittr,
     stringr,
-    valid (>= 0.0.0.9001)
+    valid
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

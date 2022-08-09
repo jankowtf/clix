@@ -1,3 +1,12 @@
+# clix 0.0.1.9004 (2022-08-09)
+
+Reset
+
+- Added `dir_reset()`
+- Modified `ask_dir_create()`
+
+---------
+
 # clix 0.0.1.9003
 
 Pipe-friendy

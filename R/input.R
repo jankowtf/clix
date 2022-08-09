@@ -1,3 +1,5 @@
+# Input yes/no/again/exit -------------------------------------------------
+
 #' User input: yes/no/again/exit `r lifecycle::badge("experimental")`
 #'
 #' @param title ([character]) Optional title before presenting the input
@@ -28,6 +30,42 @@ input_yes_no_again_exit <- function(
         # }
     )
 }
+
+
+# Input keep/reset/again/exit ---------------------------------------------
+
+#' User input: yes/no/again/exit `r lifecycle::badge("experimental")`
+#'
+#' @param title ([character]) Optional title before presenting the input
+#'   choices. Currently not "compatible as desired" between {[cli]} and
+#'   [select.list] and thus set to `character()` by default.
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' input_yes_no_again_exit()
+#' }
+input_keep_reset_again_exit <- function(
+    title = character()
+) {
+    if (length(title)) {
+        title %>% h1()
+        # TODO-20220131-1821: Find more flexible ways to use "preamble" text that
+        # does not necessarily needs to be an 'h1()'
+    }
+
+    select.list(
+        choices = valid::valid_keep_reset_again_exit(),
+        preselect = valid::valid_keep_reset_again_exit("keep")
+        # title = {
+        #     title %>% cli::cli_text()
+        # }
+    )
+}
+
+# Handle input ------------------------------------------------------------
 
 #' Handle input (internal part) `r lifecycle::badge("experimental")`
 #'
