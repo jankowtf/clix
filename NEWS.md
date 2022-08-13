@@ -1,3 +1,11 @@
+# clix 0.0.1.9006 (2022-08-13)
+
+Fixed starting over behavior
+
+- Fixed `handle_input()`
+
+---------
+
 # clix 0.0.1.9005 (2022-08-13)
 
 Non-interactive cases

@@ -165,7 +165,7 @@ handle_input <- function(
     if (input %in% valid::valid_again_exit(flip = TRUE)) {
         if (input == "again") {
             cli::cli_inform("Starting over...")
-            input <- Recall()
+            input <- Recall(input_fn = input_fn)
             # input <- input_fn()
         } else if (input == "exit") {
             cli::cli_inform("Exiting")
