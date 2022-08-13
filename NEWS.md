@@ -1,3 +1,11 @@
+# clix 0.0.1.9007 (2022-08-13)
+
+Propagate non-interactive functionality
+
+- Modified `ask_dir_create()` and `handle_input()`: added argument `is_interactive`
+
+---------
+
 # clix 0.0.1.9006 (2022-08-13)
 
 Fixed starting over behavior

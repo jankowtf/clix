@@ -8,7 +8,8 @@ handle_input(
   input_fn = input_yes_no_again_exit,
   implications_fn = function(answer) { },
   type = c("inner", "outer"),
-  envir = parent.frame()
+  envir = parent.frame(),
+  is_interactive = interactive()
 )
 }
 \arguments{
@@ -23,6 +24,8 @@ TODO-20220201-1620: check what 'inner' and 'outer' actually does - too long
 ago ;-)}
 
 \item{envir}{(\link{environment}) The environment in which to evaluate expression.}
+
+\item{is_interactive}{[\link{logical}] Interactive mode yes/no}
 }
 \value{
 

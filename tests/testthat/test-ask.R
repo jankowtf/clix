@@ -32,3 +32,13 @@ test_that("Ask: create directory: exists = true", {
     result <- ask_dir_create(dir = path %>% fs::path("a"))
     expect_true(path %>% fs::dir_exists())
 })
+
+test_that("Ask: create directory: exists = true: interactive = false", {
+    if (!(path %>% fs::dir_exists())) {
+        path %>% fs::dir_create(recurse = TRUE)
+    }
+
+    result <- ask_dir_create(dir = path %>% fs::path("a"), is_interactive = FALSE)
+    expect_true(path %>% fs::path("a") %>% fs::dir_exists())
+    expect_false(path %>% fs::path("a/b") %>% fs::dir_exists())
+})

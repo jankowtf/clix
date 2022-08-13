@@ -16,7 +16,7 @@ ask_dir_create(
   implications_no = c("Nothing ;-)"),
   step = 0,
   steps_max = 0,
-  yes = FALSE
+  is_interactive = interactive()
 )
 }
 \arguments{
@@ -43,7 +43,7 @@ implications preamble text}
 \item{steps_max}{(\link{integer}) Denote how many process steps there are in
 total. See \code{\link[cli:h1]{cli::h1()}}.}
 
-\item{yes}{[\link{logical}] Answer yes yes/no}
+\item{is_interactive}{[\link{logical}] Interactive mode yes/no}
 }
 \value{
 

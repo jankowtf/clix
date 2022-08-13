@@ -144,6 +144,7 @@ handle_input_ <- function(
 #' TODO-20220201-1620: check what 'inner' and 'outer' actually does - too long
 #' ago ;-)
 #' @param envir ([environment]) The environment in which to evaluate expression.
+#' @param is_interactive [[logical]] Interactive mode yes/no
 #'
 #' @return
 #' @export
@@ -153,10 +154,11 @@ handle_input <- function(
     input_fn = input_yes_no_again_exit,
     implications_fn = function(answer) {},
     type = c("inner", "outer"),
-    envir = parent.frame()
+    envir = parent.frame(),
+    is_interactive = interactive()
 ) {
     # Get user input
-    input <- input_fn()
+    input <- input_fn(force = !is_interactive)
 
     # Main handling
     input <- input %>% handle_input_(type = type, envir = envir)

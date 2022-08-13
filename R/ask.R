@@ -17,7 +17,7 @@
 #' @param step ([integer]) Denote which process step this is. See [cli::h1()].
 #' @param steps_max ([integer]) Denote how many process steps there are in
 #'   total. See [cli::h1()].
-#' @param yes [[logical]] Answer yes yes/no
+#' @param is_interactive [[logical]] Interactive mode yes/no
 #'
 #' @return
 #' @export
@@ -43,7 +43,7 @@ ask_dir_create <- function(
     # TODO-20220201-1815: Turn this into an actual emoji
     step = 0,
     steps_max = 0,
-    yes = FALSE
+    is_interactive = interactive()
 ) {
     # Heading
     h1(text = title, step = step, steps_max = steps_max)
@@ -81,7 +81,8 @@ ask_dir_create <- function(
                     }
                 },
                 dir = dir
-            )
+            ),
+            is_interactive = is_interactive
         )
     } else {
         preamble_exists_yes %>% handle_multi_lines()
@@ -97,7 +98,8 @@ ask_dir_create <- function(
                     }
                 },
                 dir = dir
-            )
+            ),
+            is_interactive = is_interactive
         )
     }
 
