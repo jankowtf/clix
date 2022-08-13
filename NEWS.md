@@ -1,3 +1,12 @@
+# clix 0.0.1.9005 (2022-08-13)
+
+Non-interactive cases
+
+- Modified input functions (additional arguments `value` and `force`)
+- Bugfix for exiting when `selection = 0`
+
+---------
+
 # clix 0.0.1.9004 (2022-08-09)
 
 Reset
@@ -13,6 +22,8 @@ Pipe-friendy
 
 - Modified arg order in `ask_dir_create()` to make it more pipe-friendly
 
+---------
+
 # clix 0.0.1.9002
 
 Finalized first bundle: 'ask_dir_create()'
@@ -22,6 +33,8 @@ Main changes
 - Added `README.Rmd`
 - Added unit tests in `tests/testthat`
 - Added first batch of examples
+
+---------
 
 # clix 0.0.1.9001
 

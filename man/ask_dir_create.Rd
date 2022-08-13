@@ -16,7 +16,7 @@ ask_dir_create(
   implications_no = c("Nothing ;-)"),
   step = 0,
   steps_max = 0,
-  reset = FALSE
+  yes = FALSE
 )
 }
 \arguments{
@@ -43,8 +43,7 @@ implications preamble text}
 \item{steps_max}{(\link{integer}) Denote how many process steps there are in
 total. See \code{\link[cli:h1]{cli::h1()}}.}
 
-\item{reset}{[\link{logical}] Reset existing directories yes/no? Yes implies that
-all subdirectories are deleted}
+\item{yes}{[\link{logical}] Answer yes yes/no}
 }
 \value{
 

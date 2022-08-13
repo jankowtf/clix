@@ -17,8 +17,7 @@
 #' @param step ([integer]) Denote which process step this is. See [cli::h1()].
 #' @param steps_max ([integer]) Denote how many process steps there are in
 #'   total. See [cli::h1()].
-#' @param reset [[logical]] Reset existing directories yes/no? Yes implies that
-#'   all subdirectories are deleted
+#' @param yes [[logical]] Answer yes yes/no
 #'
 #' @return
 #' @export
@@ -44,7 +43,7 @@ ask_dir_create <- function(
     # TODO-20220201-1815: Turn this into an actual emoji
     step = 0,
     steps_max = 0,
-    reset = FALSE
+    yes = FALSE
 ) {
     # Heading
     h1(text = title, step = step, steps_max = steps_max)

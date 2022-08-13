@@ -555,15 +555,15 @@
     },
     "valid": {
       "Package": "valid",
-      "Version": "0.0.0.9008",
+      "Version": "0.0.0.9009",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteUsername": "rappster",
       "RemoteRepo": "valid",
       "RemoteRef": "main",
-      "RemoteSha": "ea9ef70f95f7c105bd93f7830bf54c06a610629b",
-      "Hash": "e7add91c4bf11182eec5169681982fac"
+      "RemoteSha": "5675b95e9cbe403aaf01fbc160b0b93b4d612cc1",
+      "Hash": "e222ef2b1b33416d6beb3238390bbfe9"
     },
     "vctrs": {
       "Package": "vctrs",

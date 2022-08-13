@@ -1,7 +1,7 @@
 Package: clix
 Type: Package
 Title: A custom CLI implementation
-Version: 0.0.1.9004
+Version: 0.0.1.9005
 Authors@R: 
     person(given = "Janko",
            family = "Thyson",

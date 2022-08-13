@@ -100,7 +100,7 @@ path <- ask_dir_create(dir = path)
 # 4: Exit
 ```
 
-Answer with an input of 1 (“Yes”)
+Answer with `1: Yes`
 
 ``` r
 # Selection: 1
@@ -113,17 +113,19 @@ path %>% fs::dir_exists()
 
 ``` r
 ask_dir_create(dir = path)
-# ── Directory check ──────────────────────────────────────────
-# Directory
-# /var/folders/r1/_3hsv89s6rq2vl9nm31jjk700000gn/T/Rtmpyl8rUK/a/b/c
-# already exists.
+# Directory /var/folders/r1/_3hsv89s6rq2vl9nm31jjk700000gn/T/RtmpnxbKca/a/b/c already
+# exists.
 # 
-# There is nothing to do.
+# 
+# 1: Keep
+# 2: Reset
+# 3: Let me start over
+# 4: Exit
 ```
 
-You can also reset an existing directory to its “original state” in the
-sense that the all subdirectories are deleted by answering with
-`2: Reset`
+You can reset an existing directory to its “original state” in the sense
+that the all **subdirectories** (but not the directory itself) are
+deleted by answering with `2: Reset`
 
 ### Directory does not exist yet and you want to keep it that way
 
@@ -133,7 +135,7 @@ Let’s make sure the temp dir is deleted again before moving on
 path %>% fs::dir_delete()
 ```
 
-Answer with “No” (input = 2)
+Answer with `2: No`
 
 ``` r
 ask_dir_create(dir = path)
@@ -164,7 +166,7 @@ ask_dir_create(dir = path)
 #   Directory '/var/folders/r1/_3hsv89s6rq2vl9nm31jjk700000gn/T/Rtmpyl8rUK/a/b/c' was not created
 ```
 
-Answer with “Let me start over” (input = 3)
+Answer with `3: Let me start over`
 
 ``` r
 ask_dir_create(dir = path)

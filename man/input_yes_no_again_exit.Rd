@@ -4,12 +4,20 @@
 \alias{input_yes_no_again_exit}
 \title{User input: yes/no/again/exit \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}}
 \usage{
-input_yes_no_again_exit(title = character())
+input_yes_no_again_exit(
+  title = character(),
+  value = valid::valid_yes_no_again_exit("yes"),
+  force = FALSE
+)
 }
 \arguments{
 \item{title}{(\link{character}) Optional title before presenting the input
 choices. Currently not "compatible as desired" between {\link{cli}} and
 \link{select.list} and thus set to \code{character()} by default.}
+
+\item{value}{[\link{character}] Value for non-interactive situations}
+
+\item{force}{[\link{logical}] Force usage of value yes/no}
 }
 \value{
 
@@ -20,5 +28,6 @@ User input: yes/no/again/exit \ifelse{html}{\href{https://lifecycle.r-lib.org/ar
 \examples{
 \dontrun{
 input_yes_no_again_exit()
+input_yes_no_again_exit(force = TRUE)
 }
 }

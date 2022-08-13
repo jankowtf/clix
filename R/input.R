@@ -5,6 +5,8 @@
 #' @param title ([character]) Optional title before presenting the input
 #'   choices. Currently not "compatible as desired" between {[cli]} and
 #'   [select.list] and thus set to `character()` by default.
+#' @param value [[character]] Value for non-interactive situations
+#' @param force [[logical]] Force usage of value yes/no
 #'
 #' @return
 #' @export
@@ -12,10 +14,17 @@
 #' @examples
 #' \dontrun{
 #' input_yes_no_again_exit()
+#' input_yes_no_again_exit(force = TRUE)
 #' }
 input_yes_no_again_exit <- function(
-    title = character()
+    title = character(),
+    value = valid::valid_yes_no_again_exit("yes"),
+    force = FALSE
 ) {
+    if (!interactive() || force) {
+        return(value %>% valid::valid_yes_no_again_exit())
+    }
+
     if (length(title)) {
         title %>% h1()
         # TODO-20220131-1821: Find more flexible ways to use "preamble" text that
@@ -31,7 +40,6 @@ input_yes_no_again_exit <- function(
     )
 }
 
-
 # Input keep/reset/again/exit ---------------------------------------------
 
 #' User input: yes/no/again/exit `r lifecycle::badge("experimental")`
@@ -39,17 +47,26 @@ input_yes_no_again_exit <- function(
 #' @param title ([character]) Optional title before presenting the input
 #'   choices. Currently not "compatible as desired" between {[cli]} and
 #'   [select.list] and thus set to `character()` by default.
+#' @param value [[character]] Value for non-interactive situations
+#' @param force [[logical]] Force usage of value yes/no
 #'
 #' @return
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#' input_yes_no_again_exit()
+#' input_keep_reset_again_exit()
+#' input_keep_reset_again_exit(force = TRUE)
 #' }
 input_keep_reset_again_exit <- function(
-    title = character()
+    title = character(),
+    value = valid::valid_keep_reset_again_exit("reset"),
+    force = FALSE
 ) {
+    if (!interactive() || force) {
+        return(value %>% valid::valid_keep_reset_again_exit())
+    }
+
     if (length(title)) {
         title %>% h1()
         # TODO-20220131-1821: Find more flexible ways to use "preamble" text that
@@ -80,6 +97,11 @@ handle_input_ <- function(
     envir = parent.frame()
 ) {
     type <- match.arg(type)
+
+    if (answer == "") {
+        return("exit")
+    }
+
     answer <- if (type == "inner") {
         tmp <- switch(
             names(answer),
@@ -137,16 +159,14 @@ handle_input <- function(
     input <- input_fn()
 
     # Main handling
-    input <- input %>% handle_input_(
-        type = type,
-        envir = envir
-    )
+    input <- input %>% handle_input_(type = type, envir = envir)
 
     # Interpret input
     if (input %in% valid::valid_again_exit(flip = TRUE)) {
         if (input == "again") {
             cli::cli_inform("Starting over...")
             input <- Recall()
+            # input <- input_fn()
         } else if (input == "exit") {
             cli::cli_inform("Exiting")
             return(input)
